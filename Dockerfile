@@ -1,5 +1,5 @@
 FROM php:8.0-cli AS deployer 
-ENV OSTICKET_VERSION=1.16.3
+ENV OSTICKET_VERSION=1.17.5
 RUN set -x \
     && apt-get update \
     && apt-get install -y git-core \
@@ -14,7 +14,7 @@ RUN set -x \
     && chmod -R go= /data/upload/setup_hidden
 
 FROM php:8.0-fpm-alpine
-MAINTAINER Martin Campbell <martin@campbellsoftware.co.uk>. Updated to support php 8 and osticket 16.3 by Bob Weston
+MAINTAINER Martin Campbell <martin@campbellsoftware.co.uk>. Updated to support php 8 and osticket 1.17.5 by Bob Weston and MrDrache333
 # environment for osticket
 ENV HOME=/data
 # setup workdir
@@ -45,6 +45,7 @@ RUN set -x && \
         libxml2-dev \
         icu-dev \
         autoconf \
+        linux-headers \
         g++ \
         make \
         pcre-dev && \
